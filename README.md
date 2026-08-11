@@ -3,7 +3,7 @@
 This practical demonstrates how to create an end-to-end Machine Learning pipeline using **Python, Git, and DVC (Data Version Control)**.
 
 The pipeline consists of four stages:
-```text
+'''text
 Data Collection
        ↓
 Data Preprocessing
@@ -11,3 +11,4 @@ Data Preprocessing
 Model Building
        ↓
 Model Evaluation
+'''
