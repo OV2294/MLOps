@@ -4,6 +4,7 @@ This practical demonstrates how to create an end-to-end Machine Learning pipelin
 
 The pipeline consists of four stages:
 
+```text
 Data Collection
        ↓
 Data Preprocessing
@@ -11,6 +12,7 @@ Data Preprocessing
 Model Building
        ↓
 Model Evaluation
+
 
 
 ## Step 1: Create the Project Folder
