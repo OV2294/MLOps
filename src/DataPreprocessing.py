@@ -11,7 +11,7 @@ def fill_missing_with_median(df):
     for column in df.columns:
         if df[column].isnull().any():
             median_value = df[column].median()
-            df[column].fillna(median_value, inplace=True)
+            df[column] = df[column].fillna(median_value)
     return df
 
 

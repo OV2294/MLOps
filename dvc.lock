@@ -3,6 +3,10 @@ stages:
   Data_Collection:
     cmd: python src/DataCollection.py
     deps:
+    - path: data/water_potability.csv
+      hash: md5
+      md5: a5eeae83d792e40da6c2f9e1eab945fc
+      size: 525187
     - path: src/DataCollection.py
       hash: md5
       md5: 892de9eaef6456217b41ce3fdb213a74
@@ -16,37 +20,56 @@ stages:
   Data_Preprocessing:
     cmd: python src/DataPreprocessing.py
     deps:
-    - path: src/DataCollection.py
+    - path: data/raw
       hash: md5
-      md5: 892de9eaef6456217b41ce3fdb213a74
-      size: 702
+      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
+      size: 522262
+      nfiles: 2
+    - path: src/DataPreprocessing.py
+      hash: md5
+      md5: c8680b53b2138997749371d88a3034b1
+      size: 990
     outs:
     - path: data/processed
       hash: md5
-      md5: a172fdf7bf1c8375a7619512d4968cfc.dir
-      size: 521886
+      md5: 09d7d1468d5c1e6739769af7e3154438.dir
+      size: 546137
       nfiles: 2
   Model_Building:
     cmd: python src/ModelBuilding.py
     deps:
-    - path: src/DataPreprocessing.py
+    - path: data/processed
       hash: md5
-      md5: cce408c63ce601398320b0b6b85da1b2
-      size: 991
-    outs:
-    - path: data/model.pkl
-      hash: md5
-      md5: f085080da4253332839bd74cda4d5fed
-      size: 7214171
-  Model_Evaluation:
-    cmd: python src/Metrics.py
-    deps:
+      md5: 09d7d1468d5c1e6739769af7e3154438.dir
+      size: 546137
+      nfiles: 2
     - path: src/ModelBuilding.py
       hash: md5
       md5: b79ce86980a3264763d09c21c8e32b71
       size: 486
     outs:
+    - path: data/model.pkl
+      hash: md5
+      md5: 3f28170671341404cec96914ca8ebf0e
+      size: 7350971
+  Model_Evaluation:
+    cmd: python src/Metrics.py
+    deps:
+    - path: data/model.pkl
+      hash: md5
+      md5: 3f28170671341404cec96914ca8ebf0e
+      size: 7350971
+    - path: data/processed
+      hash: md5
+      md5: 09d7d1468d5c1e6739769af7e3154438.dir
+      size: 546137
+      nfiles: 2
+    - path: src/Metrics.py
+      hash: md5
+      md5: 574094b4c71085e0aa12d01d6426b90a
+      size: 939
+    outs:
     - path: data/metrics.json
       hash: md5
-      md5: 572e48b7418e6c1cb4c8c4d36fa47673
-      size: 144
+      md5: 671f213511f7077d7256e31239edf0fc
+      size: 145

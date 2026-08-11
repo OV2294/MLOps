@@ -2,26 +2,32 @@ stages:
   Data_Collection:
     cmd: python src/DataCollection.py
     deps:
-    - src/DataCollection.py
+      - src/DataCollection.py
+      - data/water_potability.csv
     outs:
-    - data/raw
+      - data/raw
+
   Data_Preprocessing:
     cmd: python src/DataPreprocessing.py
     deps:
-    - src/DataCollection.py
+      - src/DataPreprocessing.py
+      - data/raw
     outs:
-    - data/processed
+      - data/processed
+
   Model_Building:
     cmd: python src/ModelBuilding.py
     deps:
-    - src/DataPreprocessing.py
+      - src/ModelBuilding.py
+      - data/processed
     outs:
-    - data/model.pkl
+      - data/model.pkl
 
   Model_Evaluation:
     cmd: python src/Metrics.py
     deps:
-    - src/ModelBuilding.py
+      - src/Metrics.py
+      - data/model.pkl
     metrics:
-    - data/metrics.json:
-        cache: false
+      - data/metrics.json:
+          cache: false
