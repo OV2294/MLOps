@@ -1,5 +1,0 @@
-outs:
-- md5: 1fd3e3d35d40edc2057f9e5d29fb0f8a
-  size: 41769
-  hash: md5
-  path: telecom_data_clean.csv

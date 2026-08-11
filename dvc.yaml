@@ -8,22 +8,20 @@ stages:
   Data_Preprocessing:
     cmd: python src/DataPreprocessing.py
     deps:
-    - data/raw
-    - src/DataPreprocessing.py
+    - src/DataCollection.py
     outs:
     - data/processed
   Model_Building:
     cmd: python src/ModelBuilding.py
     deps:
-    - data/processed/train_processed.csv
-    - src/ModelBuilding.py
+    - src/DataPreprocessing.py
     outs:
     - data/model.pkl
-  model_evaluation:
-    cmd: python src/matric.py
+
+  Model_Evaluation:
+    cmd: python src/Metrics.py
     deps:
-    - data/model.pkl
-    - src/matric.py
+    - src/ModelBuilding.py
     metrics:
-    - metrics.json:
+    - data/metrics.json:
         cache: false

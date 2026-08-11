@@ -16,18 +16,37 @@ stages:
   Data_Preprocessing:
     cmd: python src/DataPreprocessing.py
     deps:
-    - path: data/raw
+    - path: src/DataCollection.py
       hash: md5
-      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
-      size: 522262
-      nfiles: 2
-    - path: src/DataPreprocessing.py
-      hash: md5
-      md5: cce408c63ce601398320b0b6b85da1b2
-      size: 991
+      md5: d15034612eaa8cafd1f8dde77b05bbac
+      size: 722
     outs:
     - path: data/processed
       hash: md5
       md5: a172fdf7bf1c8375a7619512d4968cfc.dir
       size: 521886
       nfiles: 2
+  Model_Building:
+    cmd: python src/ModelBuilding.py
+    deps:
+    - path: src/DataPreprocessing.py
+      hash: md5
+      md5: cce408c63ce601398320b0b6b85da1b2
+      size: 991
+    outs:
+    - path: data/model.pkl
+      hash: md5
+      md5: f085080da4253332839bd74cda4d5fed
+      size: 7214171
+  Model_Evaluation:
+    cmd: python src/Metrics.py
+    deps:
+    - path: src/ModelBuilding.py
+      hash: md5
+      md5: b79ce86980a3264763d09c21c8e32b71
+      size: 486
+    outs:
+    - path: data/metrics.json
+      hash: md5
+      md5: 572e48b7418e6c1cb4c8c4d36fa47673
+      size: 144
