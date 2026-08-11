@@ -59,11 +59,6 @@ stages:
       hash: md5
       md5: 3f28170671341404cec96914ca8ebf0e
       size: 7350971
-    - path: data/processed
-      hash: md5
-      md5: 09d7d1468d5c1e6739769af7e3154438.dir
-      size: 546137
-      nfiles: 2
     - path: src/Metrics.py
       hash: md5
       md5: 574094b4c71085e0aa12d01d6426b90a
