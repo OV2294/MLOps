@@ -107,20 +107,12 @@ Initialize the project as a Git repository:
 
 git init
 
-Check the Git status:
-
-git status
-
 
 ## Step 6: Initialize DVC
 
 Initialize DVC:
 
 dvc init
-
-Check the status:
-
-git status
 
 
 ## Step 7: Create the Data Collection DVC Stage
