@@ -4,7 +4,7 @@ import os
 from sklearn.model_selection import train_test_split
 
 # Read the dataset
-data = pd.read_csv(r"C:\Users\omkar\Downloads\water_potability.csv")
+data = pd.read_csv(r"C:\Users\KES 10\Downloads\water_potability.csv")
 
 # Split the dataset into training and testing sets
 train_data, test_data = train_test_split(

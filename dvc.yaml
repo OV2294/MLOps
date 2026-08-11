@@ -18,4 +18,13 @@ stages:
     - data/processed/train_processed.csv
     - src/ModelBuilding.py
     outs:
-    - models/model.pkl
+    - data/model.pkl
+  model_evaluation:
+    cmd: python src/matric.py
+    deps:
+    - data/processed/test_processed.csv
+    - data/model.pkl
+    - src/matric.py
+    metrics:
+    - metrics.json:
+        cache: false

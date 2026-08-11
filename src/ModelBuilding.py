@@ -16,4 +16,4 @@ clf = RandomForestClassifier()
 clf.fit(X_train, y_train)
 
 # Save the trained model
-pickle.dump(clf, open("model.pkl", "wb"))
+pickle.dump(clf, open("data/model.pkl", "wb"))
