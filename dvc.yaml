@@ -22,7 +22,6 @@ stages:
   model_evaluation:
     cmd: python src/matric.py
     deps:
-    - data/processed/test_processed.csv
     - data/model.pkl
     - src/matric.py
     metrics:
