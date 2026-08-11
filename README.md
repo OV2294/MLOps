@@ -478,18 +478,7 @@ The metrics include:
 - F1 Score
 
 
-## Step 24: View the Metrics JSON File
-
-On Windows:
-
-type data\metrics.json
-
-On Linux/macOS:
-
-cat data/metrics.json
-
-
-## Step 25: Check the Final Project Structure
+## Step 24: Check the Final Project Structure
 
 After completing all stages, the project structure will look like:
 
@@ -522,43 +511,41 @@ mlpipeline/
 └── README.md
 
 
-## Step 26: Check Git Status
+## Step 25: Check Git Status
 
 Check the Git status:
 
 git status
 
 
-## Step 27: Add Files to Git
+## Step 26: Add Files to Git
 
 Add the project files:
 
 git add .
 
 
-## Step 28: Commit the Project
+## Step 27: Commit the Project
 
 Commit the project:
 
 git commit -m "Create MLOps pipeline using DVC"
 
 
-## Step 29: Connect the Local Repository to GitHub
+## Step 28: Connect the Local Repository to GitHub
 
-Create a repository on GitHub named:
-
-MLOps
+Create a repository on GitHub 
 
 Then connect the local repository to GitHub:
 
-git remote add origin https://github.com/OV2294/MLOps.git
+git remote add origin <repo_link>
 
 Check the remote:
 
 git remote -v
 
 
-## Step 30: Push the Project to GitHub
+## Step 29: Push the Project to GitHub
 
 Rename the branch to main:
 
@@ -607,9 +594,6 @@ Check pipeline status.
 
 dvc metrics show
 Display model metrics.
-
-dvc metrics diff
-Compare metrics.
 
 
 # Final Pipeline
